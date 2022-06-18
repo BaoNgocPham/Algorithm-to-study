@@ -2,8 +2,18 @@
 
 a = int(input("input a "))
 b = int(input("input b "))
-# method to compute gcd ( Euclidean algo )
-#the first way:
+
+#The FIRST and NORMAL way (with the huge number, it will take a really long time to run.
+
+common_divisor = []
+for i in range(1, a+1):
+    for j in range(1, b+1):
+        if a % i == 0 and b % j == 0:
+            if i==j:
+                common_divisor.append(i)
+print(max(common_divisor))
+
+#the second method use Euclidean algo
 def computeGCD(a, b):
     temp = 0
     while b:
@@ -15,10 +25,10 @@ def computeGCD(a, b):
 
 print("The gcd of a and b is : ", computeGCD(a, b))
 
-#the most DRY way:
+#the most DRY way use Euclidean algo
 def computeGCD(a, b):
     while b:
-        a, b = b, a % b #b value assign to a, the remainder of a:b assign to b.
+        a, b = b, a % b #b value assign to a, the remainder of a/b assign to b.
     return abs(a) 
 
 print("The gcd of a and b is : ", computeGCD(a, b))

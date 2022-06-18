@@ -1,0 +1,24 @@
+#Recall that the Greatest Common Divisor (GCD) of two integers A and B is the largest integer that divides both A and B.
+
+a = int(input("input a "))
+b = int(input("input b "))
+# method to compute gcd ( Euclidean algo )
+#the first way:
+def computeGCD(a, b):
+    temp = 0
+    while b:
+        temp = b
+        b = a % b
+        a = temp
+        print(a,b) # just to check how a and b change time through time
+    return abs(a) #till the end, when b= 0 means False, a= GDC. abs() make sure that a>0
+
+print("The gcd of a and b is : ", computeGCD(a, b))
+
+#the most DRY way:
+def computeGCD(a, b):
+    while b:
+        a, b = b, a % b #b value assign to a, the remainder of a:b assign to b.
+    return abs(a) 
+
+print("The gcd of a and b is : ", computeGCD(a, b))
